@@ -30,12 +30,25 @@ public class StringUtil {
 		String find4 = "protestors";
 		String strReplaceWith4 = "police";
 		
-		replaceStringBuilder(input4, find4, strReplaceWith4);
+	//	replaceStringBuilder(input4, find4, strReplaceWith4);
+	//	replaceStringBuilder(input4, "Protestors", "Police");
+		
+		
+		
+		StringBuilder input5= new StringBuilder("Simon, Simon, Simon, you can't always get what you want Simon");
+
+        String find5 = "Simon";
+
+        String strReplaceWith5 = "Ray";
+
+        replaceStringBuilder(input5, find5, strReplaceWith5,0,26);
 		
 	}
 	
 	public static void replaceStringBuilder(StringBuilder input, String find, String strReplaceWith,
 			int startPosition, int endPosition) {
+		
+		
 
 		
 		int length = find.length();
@@ -49,7 +62,7 @@ public class StringUtil {
 		int len = endPosition;
 		
 		for(int i = startPosition; i <= (endPosition=len); i++) {
-			
+
 			StringBuilder s = input;
 			CharSequence fragment;
 			if(length+i <= endPosition && length+i <= input.length()) {
@@ -57,6 +70,8 @@ public class StringUtil {
 			} else {
 				break;
 			}
+			
+			
 			
 //			if(fragment.equals(find) && (Character.isUpperCase(fragment.charAt(0)) && Character.isLowerCase(c))) {
 //				
@@ -68,7 +83,12 @@ public class StringUtil {
 				
 				
 				input.replace(i, length+i, strReplaceWith);
-				i = i+lengthOfReplacement-length;
+				
+				if(i+lengthOfReplacement-length < 0) {
+					i = 0; 
+				} else {
+					i = i+lengthOfReplacement-length;
+				}
 				len = len+lengthOfReplacement-length;
 				
 			}
