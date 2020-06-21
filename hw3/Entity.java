@@ -12,7 +12,7 @@ public class Entity {
 	public Entity(String anyName) {
 		
 		this.name = anyName;
-		this.id = nextIdNumber;
+		this.id = nextIdNumber++;
 		
 	}
 	
@@ -28,10 +28,6 @@ public class Entity {
 
 	public int getId() {
 		return this.id;
-	}
-
-	public void setId(int anyId) {
-		this.id = anyId;
 	}
 
 	public String getName() {
